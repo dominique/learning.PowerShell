@@ -1,0 +1,34 @@
+Commands:
+
+	* dir | ? { $_.PSIsContainer } - show all directory
+	* update-help -Force: update powershell help
+	* get-verb: list all verb type command
+	* get-help get-service -detailed: show detailed syntax 
+	* get-help get-service -Examples: show help with examples
+	* get-service -Name bits | Start-Service -PassThru : stops service that has bits in the name, use pipe for the command
+	* -ShowWindow : displays powershell help information in a window dialog
+	* get-service |  export-csv -Path c:\service.csv
+	* get-service | ConvertTo-Html -Property Name, Status | Out-File c:\test.htm : piping example
+	* Get-Service | Stop-Service -WhatIf : WhatIf tells you what it would do but not actually doing it
+	* Get-Service | Stop-Service -Confirm : Confirms tells you what it would do and confirm 
+	* 
+		* Get-Service -DisplayName *bi* |Stop-Service -Confirm : using * wildcard let you confirm each search result from wild card
+
+	* Get-Module -ListAvailable : list all of the module installed
+	* Get-Process |where Handles -gt 900 : get running process, note using pipe you can set where condition
+	* Get-Process |where Handles -gt 900 |sort Handles : get high process sort by handles
+	* Get-Service | Select -Property name, status: list name and status of all running services
+	* Get-ChildItem | Select-Object -Property Name, Length | sort -Property Length
+	* Get-ChildItem | Select-Object -Property Name, Length | sort -Property Length -Descending : selects current drive folder's name and length and sort them by length decending manner
+	* Get-EventLog -LogName System -Newest 5 | Select-Object EventID, TimeGenerated, Message : get event log messages
+	* Get-EventLog -LogName System -Newest 5 | Select-Object EventID, TimeGenerated, Message | ConvertTo-Html | Out-File c:\error.htm : generate event logs to htm
+	* Get-History : list all of command history for powershell
+
+
+Note:
+
+	* command lets are objects
+	* I has property where you can use 
+	* It also has a method
+
+
